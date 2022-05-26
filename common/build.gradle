@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 32
 
+    viewBinding {
+        enabled = true
+    }
+
     defaultConfig {
         minSdk 21
         targetSdk 32
@@ -30,6 +34,8 @@ android {
 }
 
 dependencies {
+
+    compileOnly 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha01'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

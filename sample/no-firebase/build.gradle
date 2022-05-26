@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "io.square1.saytvsdk.sample"
+        applicationId "io.square1.saytvsdk.sample.nofirebase"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -38,7 +38,6 @@ android {
 dependencies {
 
     implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha01'
-//    implementation 'org.bitbucket.square1:saytv_sdk_android:release~1.0.0-alpha01-SNAPSHOT'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

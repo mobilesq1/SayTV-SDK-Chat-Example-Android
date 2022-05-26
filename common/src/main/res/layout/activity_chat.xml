@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nofirebase.ChatActivity">
+    tools:context=".ChatActivity">
 
     <io.square1.saytvsdk.app.scenes.SayTVChatView
         android:id="@+id/chat_view"

@@ -1,11 +1,11 @@
-package io.square1.saytvsdk.sample.nofirebase
+package io.square1.saytvsdk.sample.common
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import io.square1.saytvsdk.sample.databinding.ActivityChatBinding
+import io.square1.saytvsdk.sample.common.databinding.ActivityChatBinding
 import java.util.*
 
 class ChatActivity : AppCompatActivity() {

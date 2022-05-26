@@ -1,4 +1,4 @@
-package io.square1.saytvsdk.sample.nofirebase
+package io.square1.saytvsdk.sample.common
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +9,7 @@ import android.widget.ScrollView
 import androidx.lifecycle.lifecycleScope
 import io.square1.saytvsdk.SayTVSdk
 import io.square1.saytvsdk.app.model.Result
-import io.square1.saytvsdk.sample.R
-import io.square1.saytvsdk.sample.databinding.ActivityMainBinding
-import io.square1.saytvsdk.sample.common.logcat
+import io.square1.saytvsdk.sample.common.databinding.ActivityMainBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import java.util.*

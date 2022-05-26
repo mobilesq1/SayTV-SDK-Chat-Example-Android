@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.square1.saytvsdk.sample">
+    package="io.square1.saytvsdk.sample.nofirebase">
 
     <application
         android:name="io.square1.saytvsdk.SayTVApplication"
@@ -15,10 +15,10 @@
         android:theme="@style/Theme.SayTVSdkSample"
         tools:targetApi="31">
         <activity
-            android:name=".nofirebase.ChatActivity"
+            android:name="io.square1.saytvsdk.sample.common.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".nofirebase.MainActivity"
+            android:name="io.square1.saytvsdk.sample.common.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

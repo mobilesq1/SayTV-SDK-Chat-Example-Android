@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".nofirebase.MainActivity"
+    tools:context=".MainActivity"
     android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -156,7 +156,7 @@
                     android:id="@+id/chat_id_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Chat ID"
+                    android:hint="@string/main_label_chat_id"
                     android:inputType="number"
                     android:minHeight="48dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -173,7 +173,7 @@
                     android:id="@+id/chat_name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Chat Name"
+                    android:hint="@string/main_label_chat_name"
                     android:inputType="text"
                     android:minHeight="48dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -190,7 +190,7 @@
                     android:id="@+id/chat_image_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Chat Image"
+                    android:hint="@string/main_label_chat_image"
                     android:text="@string/main_label_text_avatar_helper_url"
                     android:inputType="textUri"
                     android:minHeight="48dp"/>
