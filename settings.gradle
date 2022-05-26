@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://www.jitpack.io'
+            credentials { username JITPACK_AUTH_TOKEN }
+        }
+    }
+}
+rootProject.name = "SayTV-SDK-Chat-Example-Android"
+include ':sample:no-firebase'
+include ':sample:firebase'
+include ':common'
