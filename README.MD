@@ -15,12 +15,12 @@ integrating this SDK is not using Firebase Messaging services
 ### `:sample:firebase`
 
 This is a sample demonstrating using the SDK when it has to be coupled with an already existing
-firebase implementation.
+Firebase implementation.
 
 For this the project is using a 
 [mock-google-services.json](https://github.com/firebase/quickstart-android/blob/master/mock-google-services.json)
 from the `quickstart-android` Firebase repository. **Please don't' forget to replace it with
-your own `google-services.json` file if you want it to work as it is**.
+your own `google-services.json` file if you want it to work alongside your Firebase services**.
 
 ## Prerequisites
 1. In the `gradle.properties` replace string `<PROVIDED JITPACK AUTH TOKEN>` with the provided
@@ -55,27 +55,33 @@ implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha01'
 ```
 4. You're all set!
 
-## Using the SDK
+# Using the SDK
 
 ## Initialization
 
 Before any operation, the SDK must be initialized, this is done mainly through the
-`SayTVSDK.init()` method and can be achieved in 2 ways:
+`SayTVSdk.init()` method and can be achieved in 2 ways:
 1. Using our helper components that take care of initialization, automatically (OPTIONAL)
 2. Using your own custom `Application` and `FirebaseMessagingService` implementations 
 
-#### Using the helper components (OPTIONAL)
+### I. Initialization - Using the helper components (OPTIONAL)
 
 - `SayTVApplication` -  Helper class to handle the SDK initialization. Extend this
 class or simply declare it in your `AndroidManifest.xml` and the SDK initialization 
 will be handled automatically. To listen to it's result one could override
 `onSayTvSdkInitCompleted()` or subscribe to `SayTVSdk.initResultLiveData` events.
 
-    **Extending and using this class is optional**
+  **Extending and using this class is optional. Please refer to section
+  [II. Initialization - Custom implementation](#ii-initialization---custom-implementation)
+  for a more custom approach**
+
 - `SayTVFirebaseService`- Helper class to automatically delegate the Firebase events to the SDK. 
 Extend this class or simply declare it in your `AndroidManifest.xml`
 and the component will automatically forward the Firebase events to the SDK.
-
+    
+  **Extending and using this class is optional. Please refer to section
+  [II. Initialization - Custom implementation](#ii-initialization---custom-implementation)
+  for a more custom approach**
 
 Please reference to  `:sample:no-firebase` for an example on how to use the helper components.
 Please notice that you still have to add the `io.square1.saytvsdk.SayTVApplication` and 
@@ -98,7 +104,61 @@ them) in your `AndroidManifest` in order for it to properly work, like so:
 </application>
 ```
 
-#### Custom implementation
+### II. Initialization - Custom implementation
+
+If you already have existing `Application` or `FirebaseMessagingService` components and you don't
+need to use the helper ones from section
+[I. Initialization - Using the helper components](#i-initialization---using-the-helper-components-optional)
+then to integrate with our SDK you'll have to:
+1. If you don't have an `Application` class already, create one, declare it in your 
+`AndroidManifest.xml`, and in your `onCreate()` method call `SayTVSdk.init()`. In the
+`SayTVSdk.init()` `onCompleted()` parameter function, you'll be notified when the 
+initialization has completed. See `:sample:firebase` for a working example.
+```kotlin
+class SampleApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        SayTVSdk.init(this) {
+            when (it) {
+                is Result.Success -> logcat { "SayTVSdk initialized successfully" }
+                is Result.Error.Firebase -> logcat(Log.ERROR, it.throwable) { "SayTVSdk failed to initialize:" }
+            }
+        }
+    }
+
+}
+```
+
+2. If you don't have a `FirebaseMessagingService`, create one, declare it in your
+`AndroidManifest.xml` and in the `onNewToken(String)` method call
+`SayTVSdk.firebaseDelegate.onNewToken(token)`.  See `:sample:firebase` for a working example.
+```kotlin
+class SampleFirebaseMessagingService : FirebaseMessagingService() {
+
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
+        SayTVSdk.firebaseDelegate.onNewToken(token)
+    }
+
+}
+```
+Don't forget to declare them in your `AndroidManifest.xml` file:
+```xml
+<application
+    android:name=".SampleApp"
+    ... >
+...
+    <service
+        android:name=".SampleFirebaseMessagingService"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+    </service>
+
+</application>
+```
 
 ## Register
 
@@ -119,6 +179,16 @@ An Android View containing the chat itself. For this view to work properly, 3 th
 1. `SayTVSdk.init()` has been called and completed successfully 
 2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
 3. `SayTVChatView.init()` has been called with the proper parameters, see `SayTVChatView.init()`
+
+You are now able to integrate and use our `SayTVChatView` in your layouts. See `ChatActivity` for a 
+working example.
+
+```xml
+ <io.square1.saytvsdk.app.scenes.SayTVChatView
+        android:id="@+id/chat_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+```
 
 ## Customization
 

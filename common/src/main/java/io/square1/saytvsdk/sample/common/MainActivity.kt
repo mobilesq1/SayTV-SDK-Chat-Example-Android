@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         SayTVSdk.initResultLiveData.observe(this) {
             when (it) {
-                is Result.Success -> logcat { "SayTVSDK initialized successfully" }
-                is Result.Error -> logcat { "SayTVSDK failed to initialize" }
+                is Result.Success -> logcat { "SayTVSdk initialized successfully" }
+                is Result.Error -> logcat { "SayTVSdk failed to initialize" }
             }
         }
 
