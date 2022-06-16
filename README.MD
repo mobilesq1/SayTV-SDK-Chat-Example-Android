@@ -32,6 +32,69 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 
 # SDK
+## What's new
+### 1.0.0-alpha04
+
+- `SayTVChatView` and `SayTVChatHeaderView` have moved to new packages
+```kotlin
+io.square1.saytvsdk.app.scenes.chat.SayTVChatView
+io.square1.saytvsdk.app.scenes.header.SayTVChatHeaderView
+```
+- Added a new way of doing view customization
+    - One can now use the new `.customizeTheme` helper method to edit the current theme at runtime 
+      or set an all together new theme object that will override the whole view theme.
+      
+    Disclaimer: This feature is subject to change and more params are to be added 
+  
+    For example:
+```kotlin
+binding.chatView.theme = object : ChatTheme {
+    override var chatBackground: Drawable? = ...
+    override var chatMessageBackgroundColor: Int = ...
+    override var chatEventItemBackgroundColor: Int = ...
+    override var quizResultItemBackgroundColor: Int = ...
+    override var messageInputBackground: Drawable? = ...
+    override var mentionsBackground: Drawable? = ...
+    override var pokeFriendButtonBackground: Drawable? = ...
+    override var shareWithFriendsButtonBackground: Drawable? = ...
+}
+
+// ---- OR ---
+
+binding.chatView.customizeTheme {
+    chatBackground = ...
+    chatMessageBackgroundColor = ...
+    chatEventItemBackgroundColor = ...
+    quizResultItemBackgroundColor = ...
+    messageInputBackground = ...
+    mentionsBackground = ...
+    pokeFriendButtonBackground = ...
+    shareWithFriendsButtonBackground = ...
+}
+```
+- Added an `view.isOverlay` parameter that allows to display the SayTV components over videos
+
+```kotlin
+binding.chatView.isOverlay = true
+```
+- Added a `ChatActionListener` which is one of several ActionListener interfaces to allow for action subscription and analytics.
+  
+  It can be used like so:
+  ```kotlin
+  class ChatActivity : AppCompatActivity(), ChatActionListener {
+      override fun onCreate(savedInstanceState: Bundle?) {
+          ...
+          binding.chatView.addActionListener(this)
+          ...
+      }
+      
+      override fun onNewCommentSent(comment: Comment) {
+          // Do something with sent comment
+      }
+  }
+  ```
+- `SayTVProfileView` can now display user badges
+- Quizes are now fully functional within `SayTVChatHeaderView`
 
 ## How to install
 
@@ -272,3 +335,4 @@ Explanation:
    
     Solution: Please make sure the SDK initialized correctly. If you are using our Helper Components,
     please make sure you have correctly declared them in your `AndroidManifest.xml`
+    
