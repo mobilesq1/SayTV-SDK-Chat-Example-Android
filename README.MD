@@ -80,19 +80,19 @@ binding.chatView.isOverlay = true
 - Added a `ChatActionListener` which is one of several ActionListener interfaces to allow for action subscription and analytics.
   
   It can be used like so:
-  ```kotlin
-  class ChatActivity : AppCompatActivity(), ChatActionListener {
-      override fun onCreate(savedInstanceState: Bundle?) {
-          ...
-          binding.chatView.addActionListener(this)
-          ...
-      }
-      
-      override fun onNewCommentSent(comment: Comment) {
-          // Do something with sent comment
-      }
-  }
-  ```
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatView.addActionListener(this)
+        ...
+    }
+
+    override fun onNewCommentSent(comment: Comment) {
+        // Do something with sent comment
+    }
+}
+```
 - `SayTVProfileView` can now display user badges
 - Quizes are now fully functional within `SayTVChatHeaderView`
 
