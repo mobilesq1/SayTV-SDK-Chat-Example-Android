@@ -95,9 +95,10 @@ class ChatActivity : AppCompatActivity(), ChatActionListener {
     }
 }
 ```
+- You can send and like messages
 - `SayTVProfileView` can now display user badges
-- Quizes are now fully functional within `SayTVChatHeaderView`
-- Mentions now work within the `SayTVChatView` component
+- Quiz creation and participation is now fully functional within `SayTVChatHeaderView`
+- Mentions now work within the `SayTVChatView` component using `@`
 
 ## How to install
 
