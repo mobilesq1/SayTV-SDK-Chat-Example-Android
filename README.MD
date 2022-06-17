@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha05
+- Minor bug fixes and improvements
 ### 1.0.0-alpha04
 
 - `SayTVChatView` and `SayTVChatHeaderView` have moved to new packages
@@ -95,6 +97,7 @@ class ChatActivity : AppCompatActivity(), ChatActionListener {
 ```
 - `SayTVProfileView` can now display user badges
 - Quizes are now fully functional within `SayTVChatHeaderView`
+- Mentions now work within the `SayTVChatView` component
 
 ## How to install
 
