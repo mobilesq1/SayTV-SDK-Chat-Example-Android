@@ -33,6 +33,28 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha07
+- Minor bug fixes and improvements
+### 1.0.0-alpha06
+- `SayTVSdk.register()` and `SayTVSdk.login()` now mandatorily accept an extra parameter `apiToken`. This secure token can be generated from the `Developer` section of the admin application.
+
+For example:
+```kotlin
+SayTVSdk.register(
+    apiToken = apiToken,
+    digicelId = digicelId,
+    username = username,
+    email = email,
+    avatar = avatar
+)
+```
+and 
+```kotlin
+SayTVSdk.login(
+    apiToken = apiToken,
+    digicelId = digicelId
+)
+```
 ### 1.0.0-alpha05
 - Minor bug fixes and improvements
 ### 1.0.0-alpha04
@@ -118,7 +140,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha05'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha07'
 ```
 4. You're all set!
 
