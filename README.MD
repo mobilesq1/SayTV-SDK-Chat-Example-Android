@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha09
+- Sparse array bug fixes and improvements
 ### 1.0.0-alpha08
 - Updated with the new security feature
 - Updated with the new Firebase configuration
@@ -144,7 +146,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:debug:1.0.0-alpha08'
+implementation 'org.bitbucket.square1.saytv_sdk_android:debug:1.0.0-alpha09'
 ```
 4. You're all set!
 
