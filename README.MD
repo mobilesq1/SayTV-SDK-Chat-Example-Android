@@ -42,6 +42,7 @@ FirebaseApp.initializeApp(this)?.initSayTvSdk(this, "preferredName")
 - In chatrooms, admins appear differently from everyone else
 - SDK now features more animations than previous versions
 - Poke funtionality have been removed
+- When the `<io.square1.saytvsdk.app.scenes.SayTVChatFullView>` component is used, the chat header can be hidden when the soft keyboard is visible
 ### 1.0.0-alpha10
 - Fixed bugs with chat action listeners
 ### 1.0.0-alpha09
