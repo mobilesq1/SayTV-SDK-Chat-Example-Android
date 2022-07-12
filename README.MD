@@ -33,6 +33,28 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha12
+- To start a timeless fanzone chat, pass in the `fanzone` flag as a boolean `true` to any of the `SayTVChatFullView`, `SayTVChatView` or `SayTVChatHeaderView` init methods. Null values can be passed for startDate and endDate. For example:
+```kotlin
+binding.sayTVChatFullView.init(
+    chatId: chatId,
+    chatName: chatName,
+    chatImage: chatImage,
+    startDate: null,
+    endDate: null,
+    isFanzone: true
+)
+```
+- To use the `SayTVChatHeaderView` as a component without subscribing to a chat, use the `initWithoutSubscribeDynamic` function in place of the `init` function to initialize. For example
+```kotlin
+binding.sayTVChatHeaderView.init(
+    episodeId: episodeId,
+    chatName: chatName,
+    chatImage: chatImage,
+    startDate: startDate,
+    endDate: endDate,
+)
+```
 ### 1.0.0-alpha11
 - You can specify a custom name for the application as opposed to the default "SayTV". For example, you can initialize the SDK like so:
 ```kotlin
@@ -158,7 +180,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:debug:1.0.0-alpha11'
+implementation 'org.bitbucket.square1.saytv_sdk_android:debug:1.0.0-alpha12'
 ```
 4. You're all set!
 
