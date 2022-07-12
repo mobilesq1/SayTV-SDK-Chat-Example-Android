@@ -47,7 +47,7 @@ binding.sayTVChatFullView.init(
 ```
 - To use the `SayTVChatHeaderView` as a component without subscribing to a chat, use the `initWithoutSubscribeDynamic` function in place of the `init` function to initialize. For example
 ```kotlin
-binding.sayTVChatHeaderView.init(
+binding.sayTVChatHeaderView.initWithoutSubscribeDynamic(
     episodeId: episodeId,
     chatName: chatName,
     chatImage: chatImage,
