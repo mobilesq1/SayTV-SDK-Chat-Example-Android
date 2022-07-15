@@ -381,6 +381,54 @@ Explanation:
 - `app:timeIntervalIcon` - Sets the image/icon for time interval as a drawable
 - `app:createChatBackground` - Sets the background for the chat edit text as a drawable
 - `app:storeIcon` - Sets the image/icon for the store button as a drawable
+
+Also, attributes can be customised using the component theme(s). `SayTVChatView`, `SayTVChatHeaderView` and `SayTVProfileView` can all be customised using their themes. For example,
+
+```kotlin
+binding.chatView.customizeTheme {
+    chatBackground = someDrawable
+    chatMessageBackgroundColor = someInt
+    chatEventItemBackgroundColor = someInt
+    quizResultItemBackgroundColor = someInt
+    chatHintColor = someInt
+    chatTextColor = someInt
+    messageInputBackground = someDrawable
+    mentionsBackground = someDrawable
+}
+
+binding.chatHeaderView.customizeTheme {
+    chatBackgroundColor = someInt
+    cardBackground = someDrawable
+    cardBackgroundColor = someInt
+    cardElevation = someFloat
+    viewersCounterTextColor = someInt
+    viewersCounterIcon = someDrawable
+    headerDescriptionTextColor = someInt
+    filtersTextColor = someInt
+    quizTextColor = someInt
+    timeRemainingTextColor = someInt
+    programTimeTextColor = someInt
+    progressBarForegroundColor = someInt
+    progressBarBackgroundColor = someInt
+    viewerCounterBackground = someDrawable
+    settingsFilterBackground = someDrawable
+    settingsPauseBackground = someDrawable
+    settingsWallpaperBackground = someDrawable
+    settingsQuizBackground = someDrawable
+    settingsHashtagBackground = someDrawable
+    tvShowProgressBarDrawable = someDrawable
+}
+
+binding.profileView.customizeTheme {
+    rootContainerBackgroundColor = someInt
+    nameTextColor = someInt
+    memberSinceTextColor= someInt
+    profileBadgesBackground = someDrawable
+    profileInfoLayoutBackground = someDrawable
+    seeAllEarnedBadgesBackground = someDrawable
+}
+```
+
 # Troubleshooting
 
 1. Gradle Sync -> Jitpack.io 403 response:
