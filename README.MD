@@ -450,3 +450,5 @@ binding.profileView.customizeTheme {
     Solution: Please make sure the SDK initialized correctly. If you are using our Helper Components,
     please make sure you have correctly declared them in your `AndroidManifest.xml`
     
+5.  Calling the `SayTVChatView` init method on a closed chat will result in an error. If a chat is closed, you need to either reopen it in the Admin panel or start a new chat with an unused externalID. NB: Atttempting to modify the start and end time on a closed chat and reentering the chat will result in an error 
+    
