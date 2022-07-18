@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha13
+- Minor bug fixes and improvements
 ### 1.0.0-alpha12
 - To start a timeless fanzone chat, pass in the `fanzone` flag as a boolean `true` to any of the `SayTVChatFullView`, `SayTVChatView` or `SayTVChatHeaderView` init methods. Null values can be passed for startDate and endDate. For example:
 ```kotlin
