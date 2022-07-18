@@ -182,7 +182,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:debug:1.0.0-alpha12'
+implementation 'org.bitbucket.square1:saytv_sdk_android:1.0.0-alpha13'
 ```
 4. You're all set!
 
