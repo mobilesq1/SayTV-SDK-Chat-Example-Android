@@ -266,13 +266,18 @@ class SampleApp : Application() {
 
 2. If you don't have a `FirebaseMessagingService`, create one, declare it in your
 `AndroidManifest.xml` and in the `onNewToken(String)` method call
-`SayTVSdk.firebaseDelegate.onNewToken(token)`.  See `:sample:firebase` for a working example.
+`SayTVSdk.firebaseDelegate.onNewToken(token)`, also in your `onMessageReceived(message)` method call SayTVSdk.firebaseDelegate.onMessageReceived(message).  See `:sample:firebase` for a working example.
 ```kotlin
 class SampleFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
         SayTVSdk.firebaseDelegate.onNewToken(token)
+    }
+    
+    override fun onMessageReceived(message: RemoteMessage) {
+        super.onMessageReceived(message)
+        SayTVSdk.firebaseDelegate.onMessageReceived(message)
     }
 
 }
