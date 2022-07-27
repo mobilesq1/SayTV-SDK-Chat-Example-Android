@@ -33,6 +33,20 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha15
+- The SDK now converts UTC time from the backend to local time on the device and vice versa
+- All action listeners now follow a consistent naming and parameter convention
+``` kotlin
+eventSendChat(userId: Int, commentText: String)
+eventAddFavourite(userId: Int, commentId: Long, commentText: String)
+eventEnterChatroom(userId: String, episodeId: Int)
+eventFirstComment(userId: Int, commentText: String)
+eventTenthComment(userId: Int, commentText: String)
+eventCreateQuiz(userId: Int, question: String, answer1: String, answer2: String)
+eventEnterQuiz(userId: Int, question: String, answer1: String, answer2: String)
+eventViewBadges(userId: Int)
+```
+- Fixed the blinking of the header when the create quiz dialog is dismissed
 ### 1.0.0-alpha14
 - The `init()` methods for all components now accept an optional parameter for language as a String, eg. "en" for English, "fr" for French, etc.
 - DateTime is now converted from local time to UTC when sending to backend
@@ -185,7 +199,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha14'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha15'
 ```
 4. You're all set!
 
