@@ -33,6 +33,20 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha17
+- Fixed issue with displayName
+- Fixed the customisation for "headerBackground" in both XML and kotlin. For example, in kotlin
+```kotlin
+binding.chatHeaderView.customizeTheme {
+    headerBackground = someDrawable
+}
+```
+```xml
+<io.square1.saytvsdk.app.scenes.header.SayTVChatHeaderView
+    ...
+    app:headerBackground="@drawable/someDrawable"
+    ... />
+```
 ### 1.0.0-alpha16
 - The bug with message ordering has been fixed
 ### 1.0.0-alpha15
@@ -201,7 +215,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha16'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha17'
 ```
 4. You're all set!
 
