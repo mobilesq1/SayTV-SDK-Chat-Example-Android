@@ -33,8 +33,14 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha20
+- Fixed error with uninitialized chat
+- Fixed bugs with quizzes and chat moderation
 ### 1.0.0-alpha19
-- Bug fixes and improvements
+- Bug with the order of messages has been fixed
+- The keyboard ime option (tick) now sends a message
+- Crash that happens with orientation change has been fixed
+- Strange animation when receiving messages has been fixed
 ### 1.0.0-alpha18
 - Bug fixes and improvements
 ### 1.0.0-alpha17
@@ -219,7 +225,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha19'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha20'
 ```
 4. You're all set!
 
