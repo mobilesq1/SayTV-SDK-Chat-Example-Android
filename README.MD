@@ -33,6 +33,9 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha24
+- Fixed chat issue with using animations in landscape mode
+- Fixed issues with the handling of date parameters for fanzones
 ### 1.0.0-alpha20
 - Fixed error with uninitialized chat
 - Fixed bugs with quizzes and chat moderation
@@ -225,7 +228,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha20'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha24'
 ```
 4. You're all set!
 
