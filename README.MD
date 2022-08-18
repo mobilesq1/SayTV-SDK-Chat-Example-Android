@@ -33,6 +33,16 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha26
+- In app notifications now works 
+- Fixed other chat items issue with using animations in landscape mode
+- Release now features a logout method to be used like 
+```kotlin
+when (val logout = SayTVSdk.logout()) {
+    is Result.Success -> doSomething
+    else -> doSomething
+}
+```
 ### 1.0.0-alpha24
 - Fixed chat issue with using animations in landscape mode
 - Fixed issues with the handling of date parameters for fanzones
@@ -228,7 +238,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha24'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha26'
 ```
 4. You're all set!
 
