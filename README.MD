@@ -33,6 +33,24 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha27
+- `SayTVChatView` and `SayTVChatHeaderView` init methods now return `Result<Boolean>` types. They can be assigned to variables and switched on to determine the success of the init operation. For example:
+```kotlin
+when (val initOp = binding.chatView.init(...)) {
+    is Result.Success -> doSomething
+    else -> doSomething
+}
+```
+- Fixed the size of the play/pause toggle button
+- Fixed crashes and bugs with Fanzones chat
+- The `Unsubscribe()` is now exposed. It is used like 
+```kotlin
+when (val unsubscribe = SayTVSdk.unsubscribe(episodeId)) {
+    is Result.Success -> doSomething
+    else -> doSomething
+}
+```
+- Quiz button is removed
 ### 1.0.0-alpha26
 - In app notifications now works 
 - Fixed other chat items issue with using animations in landscape mode
@@ -238,7 +256,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha26'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha27'
 ```
 4. You're all set!
 
