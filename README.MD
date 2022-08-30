@@ -33,6 +33,34 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha28
+- The unsubscribe() is now exposed through the `SayTVChatView` component. It is a suspend function that must be called within a coroutine like so:
+```kotlin
+launch {
+    when (val unsubscribeOp = binding.chatView.unsubscribe()) {
+        is Result.Success -> doSomething
+        else -> doSomething
+    }
+}
+```
+- Several user update methods have now been exposed for the currently logged in user. Amongst which are `updateUserName`, `updateSocialLinks` and `updateGenderAndBirthday`. They can be used like so:
+```kotlin
+when (val result = SayTVSdk.updateUserName(userName)) {
+    is Result.Success -> doSomething
+    else -> doSomething
+}
+
+when (val result = SayTVSdk.updateSocialLinks(facebookLink, instagramLink, twitterLink)) {
+    is Result.Success -> doSomething
+    else -> doSomething
+}
+
+when (val result = SayTVSdk.updateGenderAndBirthday(gender = Gender.MALE, birthday = "1997-06-07")) {
+    is Result.Success -> doSomething
+    else -> doSomething
+}
+```
+The specifics of use for each are present in the kDocs
 ### 1.0.0-alpha27
 - `SayTVChatView` and `SayTVChatHeaderView` init methods now return `Result<Boolean>` types. They can be assigned to variables and switched on to determine the success of the init operation. For example:
 ```kotlin
@@ -256,7 +284,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha27'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha28'
 ```
 4. You're all set!
 
