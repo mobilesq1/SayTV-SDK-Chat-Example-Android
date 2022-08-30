@@ -61,6 +61,7 @@ when (val result = SayTVSdk.updateGenderAndBirthday(gender = Gender.MALE, birthd
 }
 ```
 The specifics of use for each are present in the kDocs
+- All instances of user email and name have been stipped off the SDK
 ### 1.0.0-alpha27
 - `SayTVChatView` and `SayTVChatHeaderView` init methods now return `Result<Boolean>` types. They can be assigned to variables and switched on to determine the success of the init operation. For example:
 ```kotlin
