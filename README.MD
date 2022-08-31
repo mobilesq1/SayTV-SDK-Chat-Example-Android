@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha29
+- A major change with this release is `SayTVChatView.init(...)`,  `SayTVChatHeaderView.init(...)`, and `SayTVChatFullView.init(...)` must now be called from within a coroutine or another suspend function.
 ### 1.0.0-alpha28
 - The unsubscribe() is now exposed through the `SayTVChatView` component. It is a suspend function that must be called within a coroutine like so:
 ```kotlin
@@ -287,7 +289,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha28'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha29'
 ```
 4. You're all set!
 
