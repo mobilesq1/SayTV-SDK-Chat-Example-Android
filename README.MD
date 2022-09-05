@@ -33,6 +33,15 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha31
+- To customize the filters bottom sheet, use the following methods on the `SayTVChatHeaderView`, `setCustomFiltersBottomSheetTitleTextColor(color)`, `setCustomFiltersBottomSheetBodyTextColor(color)`, and `setCustomFiltersBottomSheetBackgroundColor(color)`. For example
+```kotlin
+binding.headerView.setCustomFiltersBottomSheetTitleTextColor(R.color.blue)
+binding.headerView.setCustomFiltersBottomSheetBodyTextColor(R.color.black)
+binding.headerView.setCustomFiltersBottomSheetBackgroundColor(R.color.lime)
+```
+- Play services crashes have now been swallowed
+- All the latest quiz related bugs have been fixed
 ### 1.0.0-alpha30
 - The chat component is now cleared on unSubscribe()
 - There's better user experience on loading
@@ -292,7 +301,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha30'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha31'
 ```
 4. You're all set!
 
