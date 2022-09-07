@@ -33,6 +33,10 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha33
+- Fixed bug related to customizing quiz component
+- Modified like icon to look more like Zeplin's
+- Added more logs to quizz component
 ### 1.0.0-alpha32
 - The quiz component can be customized through the header component. There properties of the quiz component can be customized, `quizBackgroundDrawable` as a drawable, `quizTextColor` as a color, and `quizTimeRemainingTextColor` as a color
 - Play-pause functionality doesn't interfare with that of the filters
