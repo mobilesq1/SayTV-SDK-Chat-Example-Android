@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha35
+- Top and My Activity filters now work as expected
 ### 1.0.0-alpha34
 - Added an extra method to customize the color of the bottom sheet close button `setCustomFiltersBottomSheetCloseButtonTextColor(color: Int)`
 - Added more quiz component customizable parameters `quizOptionsButtonBackground`, `quizOptionsButtonTextColor` and `quizOptionsTextColor`
