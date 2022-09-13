@@ -33,6 +33,15 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha36
+- The getLoggedInUser() has been exposed and can be used like so:
+```kotlin
+lifecycle.coroutineScope.launch {
+    val loggedInUser: LoggedInUser?
+    loggedInUser = SayTVSdk.getLoggedInUser()
+}
+```
+- When the TOP filter is selected and a comment is liked, the list does not automatically re-sort itself
 ### 1.0.0-alpha35
 - Top and My Activity filters now work as expected
 ### 1.0.0-alpha34
@@ -314,7 +323,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha35'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha36'
 ```
 4. You're all set!
 
