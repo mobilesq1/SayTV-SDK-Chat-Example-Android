@@ -33,9 +33,40 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha37 (yet to be released)
+- The SDK initializer now accepts an extra parameter, the baseURL which defines the environment. For example, in the application class, do this:
+```kotlin
+class MyApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        
+        Firebase.initialize(this)?.initSayTvSdk(this, baseURL = SayTVSdk.Environment.STAGING.url)
+    }
+}
+```
+The SayTVSdk.Environment enum class has a url property that allows you to switch between staging and production environments. Where an environment url is not specified in the `initSayTvSdk` method, the default staging environment is used.
+- Due to the changes above, you now have to specify your staging and/or production API_TOKEN when you call the `SayTVSdk.login()` or `SayTVSdk.register()` methods. These can be string files in your BuildConfig class so you can use like so:
+```kotlin
+lifecycle.coroutineScope.launch {
+    when (val login = SayTVSdk.login(apiToken = BuildConfig.STAGING_API_TOKEN, ...)) {
+        is Result.Success -> doSomething
+        else -> doNothing()
+    }
+}
+
+// and
+
+lifecycle.coroutineScope.launch {
+    when (val login = SayTVSdk.register(apiToken = BuildConfig.STAGING_API_TOKEN, ...)) {
+        is Result.Success -> doSomething
+        else -> doNothing()
+    }
+}
+```
 ### 1.0.0-alpha36
 - The getLoggedInUser() has been exposed and can be used like so:
-```kotlin
+```kotliSayTVSdk.register()n
 lifecycle.coroutineScope.launch {
     val loggedInUser: LoggedInUser?
     loggedInUser = SayTVSdk.getLoggedInUser()
