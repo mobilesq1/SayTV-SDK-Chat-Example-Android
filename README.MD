@@ -58,7 +58,7 @@ lifecycle.coroutineScope.launch {
 // and
 
 lifecycle.coroutineScope.launch {
-    when (val login = SayTVSdk.register(apiToken = BuildConfig.STAGING_API_TOKEN, ...)) {
+    when (val register = SayTVSdk.register(apiToken = BuildConfig.STAGING_API_TOKEN, ...)) {
         is Result.Success -> doSomething
         else -> doNothing()
     }
