@@ -33,7 +33,7 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
-### 1.0.0-alpha37 (yet to be released)
+### 1.0.0-alpha37 
 - The SDK initializer now accepts an extra parameter, the baseURL which defines the environment. For example, in the application class, do this:
 ```kotlin
 class MyApplication : Application() {
@@ -41,7 +41,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         
-        Firebase.initialize(this)?.initSayTvSdk(this, baseURL = SayTVSdk.Environment.STAGING.url)
+        Firebase.initialize(this)?.initSayTvSdk(this, environment = SayTVSdk.Environment.STAGING.url)
     }
 }
 ```
