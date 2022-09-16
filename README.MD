@@ -33,6 +33,18 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha38
+- This release features better error handling for network calls. The `Result.Error` class now contains better description of failed calls and are accessible through the throwable field. For example:
+```kotlin
+when (register) {
+    is Result.Success -> doSomething()
+    is Result.Error.Server -> {
+        val thr = register.throwable.message
+        println(thr)
+    }
+    else -> doNothing()
+}
+```
 ### 1.0.0-alpha37 
 - The SDK initializer now accepts an extra parameter, the baseURL which defines the environment. For example, in the application class, do this:
 ```kotlin
