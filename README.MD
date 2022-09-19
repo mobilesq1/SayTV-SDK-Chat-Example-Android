@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha39
+- Added the "UserNameForbidden" error to the error handler
 ### 1.0.0-alpha38
 - This release features better error handling for network calls. The `Result.Error` class now contains better description of failed calls and are accessible through the throwable field. For example:
 ```kotlin
