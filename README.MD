@@ -33,6 +33,11 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha40
+- Fixed issue with banning users and hiding comments
+- Fixed UI differences betwwen Android and iOS where the TOP and MY_ACTIVITY filters are applied
+- Fixed how the UI responds to celebrity comments
+- Fixed the sortting problems where comment is unliked while TOP filter is selected
 ### 1.0.0-alpha39
 - Added the "UserNameForbidden" error to the error handler
 ### 1.0.0-alpha38
@@ -368,7 +373,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha36'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha40'
 ```
 4. You're all set!
 
