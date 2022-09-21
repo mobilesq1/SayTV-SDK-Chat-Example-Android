@@ -33,6 +33,12 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha41
+- Fixed the error with username changes 
+- UI does not scroll when comment is liked
+- Hidden comments are properly hidden and the appropriate messages shown
+- Chat scrolls to bottom when filter is applied
+- Quiz errors related to killing and restarting the app and multiple quizzes have been resolved
 ### 1.0.0-alpha40
 - Fixed issue with banning users and hiding comments
 - Fixed UI differences betwwen Android and iOS where the TOP and MY_ACTIVITY filters are applied
