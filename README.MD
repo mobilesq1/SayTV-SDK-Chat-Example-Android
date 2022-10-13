@@ -33,6 +33,9 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha48
+- Features better spam control
+- Features better design for in-app notifications
 ### 1.0.0-alpha41
 - Fixed the error with username changes 
 - UI does not scroll when comment is liked
@@ -379,7 +382,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha40'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha48'
 ```
 4. You're all set!
 
