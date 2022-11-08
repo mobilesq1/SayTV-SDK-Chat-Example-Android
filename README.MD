@@ -33,6 +33,23 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha50
+- Enabled avatar selection by tapping on the edit button in SayTVProfileView
+- Added more XML customization SayTVProfileView 
+- Enabled chat rules for first time users
+- To use the profile component, declare it in your xml file and then initialize programmatically using the setUserId() method. For example, to use in xml, do like so
+```xml
+    <io.square1.saytvsdk.app.scenes.profile.SayTVProfileView
+            android:id="@+id/profile_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ...>
+```
+   In kotlin however, you can use the setUserID method to initialize the component. It accepts two optional parameters, a userID and a language option
+```kotlin
+    fun setUserId(userID: Int? = null, language: String = "en")
+```
+   Setting the ```userID``` allows you to view the profile of the user in question, however, ignoring it shows the profile for the currently logged in user. The ```language``` parameter defaults to "en" for english
 ### 1.0.0-alpha49
 - Fixed issues with Firebase messaging and EventManager class
 - Fixed issues with overriding USER_JOINED event
