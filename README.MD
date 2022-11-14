@@ -33,6 +33,35 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha55
+- Added a new chat action listener for use in both SayTVChatView and SayTVChatHeaderView. It can be used like so:
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatView.addActionListener(this)
+        ...
+    }
+
+    override fun eventActiveUsers(episodeId: Int, activeUsers: Int) {
+        // Do something with activeUsers count
+    }
+}
+```
+or
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatHeaderActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatHeaderView.addActionListener(this)
+        ...
+    }
+
+    override fun eventActiveUsers(episodeId: Int, activeUsers: Int) {
+        // Do something with activeUsers count
+    }
+}
+```
 ### 1.0.0-alpha54
 - Fixed alignment and design of profile error message
 - Enabled customization of the ProfileBadgesActivity and SelectAvatarActivity's toolbar icon through the `setCustomProfileBadgesActivityToolBarBackIcon()` and `setCustomSelectAvatarActivityToolBarBackIcon()` methods
@@ -424,7 +453,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha54'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha55'
 ```
 4. You're all set!
 
