@@ -33,6 +33,11 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha54
+- Fixed alignment and design of profile error message
+- Enabled customization of the ProfileBadgesActivity and SelectAvatarActivity's toolbar icon through the `setCustomProfileBadgesActivityToolBarBackIcon()` and `setCustomSelectAvatarActivityToolBarBackIcon()` methods
+- Username update is realtime
+- Features the new user joined behaviour
 ### 1.0.0-alpha52
 - Enabled customization for the SayTVProfileBadges, toolbar, background, loading bar and the SayTVSelectAvatar toolbar, background and loading bar. These customization methods need to be called on the SayTVProfileView component, for example
 ```kotlin
@@ -419,7 +424,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha52'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha54'
 ```
 4. You're all set!
 
