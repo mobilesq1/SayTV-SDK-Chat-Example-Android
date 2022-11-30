@@ -34,7 +34,7 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 # SDK
 ## What's new
 ### 1.0.0-alpha57
-- RuntimeException in ChatRulesDialogFragment
+- Fixed: RuntimeException in ChatRulesDialogFragment
 ### 1.0.0-alpha56
 - Fixed: InvocationTargetException on InAppNotificationBinding
 - Fixed: NullPointerException on BaseViewModel.java
