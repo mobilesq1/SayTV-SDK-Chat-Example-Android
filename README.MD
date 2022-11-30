@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha57
+- RuntimeException in ChatRulesDialogFragment
 ### 1.0.0-alpha56
 - Fixed: InvocationTargetException on InAppNotificationBinding
 - Fixed: NullPointerException on BaseViewModel.java
@@ -458,7 +460,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha56'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha57'
 ```
 4. You're all set!
 
