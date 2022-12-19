@@ -33,6 +33,8 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha61
+- Removed "fox"'s image from quizview
 ### 1.0.0-alpha59
 - Fixed: IllegalArgumentException in SayTVChatHeaderView
 - Fixed: NullPointerException in SayTVQuizView
@@ -466,7 +468,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha59'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha61'
 ```
 4. You're all set!
 
