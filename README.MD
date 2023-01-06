@@ -33,6 +33,23 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-testing25
+- Link previews are enabled by default
+- The chat closed page now features a button that can be tapped by the user to subscribe to the next chat. This button triggers a ChatActionListener that can be listened to like so:
+
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatView.addActionListener(this)
+        ...
+    }
+
+    override fun eventOnNextChatClicked() {
+        // Do something
+    }
+}
+```
 ### 1.0.0-alpha62
 - Reverted changes made in 1.0.0-alpha61
 ### 1.0.0-alpha61
