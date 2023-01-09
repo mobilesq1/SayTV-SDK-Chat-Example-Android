@@ -33,6 +33,24 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-testing27
+- Features the new chat approach
+- Clicking on a link triggers a callback that house the result(s) in a `LinkAndMetaDataPayload` object. The results can be collected like so:
+
+```kotlin
+class ChatActivity : AppCompatActivity(), DeepLinkActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatView.addDeepLinkActionListener(this)
+        ...
+    }
+
+    override fun eventWebLink(linkAndMetaDataPayload: LinkAndMetaDataPayload) {
+        println(linkAndMetaDataPayload)
+    }
+}
+```
+- The `addActionListener()` method of the chat component has been renamed to `addChatActionListener()`.
 ### 1.0.0-testing25
 - Link previews are enabled by default
 - The chat closed page now features a button that can be tapped by the user to subscribe to the next chat. This button triggers a ChatActionListener that can be listened to like so:
