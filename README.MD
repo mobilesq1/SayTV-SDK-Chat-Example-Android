@@ -33,6 +33,9 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-testing30
+- Fixes pending issues with the quizzes
+- Can now modify the text on the "Next Chat" button with the help of a method "setErrorText()" on the chat component
 ### 1.0.0-testing27
 - Features the new chat approach
 - Clicking on a link triggers a callback that house the result(s) in a `LinkAndMetaDataPayload` object. The results can be collected like so:
