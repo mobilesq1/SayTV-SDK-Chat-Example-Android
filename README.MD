@@ -729,6 +729,15 @@ binding.chatView.customizeTheme {
     chatTextColor = someInt
     messageInputBackground = someDrawable
     mentionsBackground = someDrawable
+    quizTextColor = someInt
+    quizTitleTextColor: someInt
+    quizOptionsTextColor: someInt
+    quizXButtonTintColor: someInt
+    quizCollapseButtonTintColor: someInt
+    quizOptionsButtonTextColor: someInt
+    quizBackgroundDrawable: someDrawable
+    quizExpirationTimeBackground: someDrawable
+    quizOptionsButtonBackground: someDrawable
 }
 
 binding.chatHeaderView.customizeTheme {
@@ -740,8 +749,16 @@ binding.chatHeaderView.customizeTheme {
     viewersCounterIcon = someDrawable
     headerDescriptionTextColor = someInt
     filtersTextColor = someInt
-    quizTextColor = someInt
     timeRemainingTextColor = someInt
+    quizTextColor = someInt
+    quizTitleTextColor: someInt
+    quizOptionsTextColor: someInt
+    quizXButtonTintColor: someInt
+    quizCollapseButtonTintColor: someInt
+    quizOptionsButtonTextColor: someInt
+    quizBackgroundDrawable: someDrawable
+    quizExpirationTimeBackground: someDrawable
+    quizOptionsButtonBackground: someDrawable
     programTimeTextColor = someInt
     progressBarForegroundColor = someInt
     progressBarBackgroundColor = someInt
@@ -761,7 +778,122 @@ binding.profileView.customizeTheme {
     profileBadgesBackground = someDrawable
     profileInfoLayoutBackground = someDrawable
     seeAllEarnedBadgesBackground = someDrawable
+    seeAllEarnedBadgesBackground = someDrawable
+    progressBarColor = someInt
 }
+```
+
+Components have several methods that can be used to customize different other elements not customizable by the theme. Use this section of the documentation to refer to them.
+
+`SayTVChatView`
+```kotlin
+    /**
+     * Set custom text color for the filter bottom sheet title
+     * @param color Custom color resource
+     */
+    fun setCustomFiltersBottomSheetTitleTextColor(color: Int?)
+    
+    /**
+     * Set custom text color for the filter bottom sheet
+     * @param color Custom color resource
+     */
+    fun setCustomFiltersBottomSheetBodyTextColor(color: Int?)
+    
+    /**
+     * Set custom background color for the filter bottom sheet
+     * @param color Custom color resource
+     */
+    fun setCustomFiltersBottomSheetBackgroundColor(color: Int?)
+
+    /**
+     * Set custom text color for the filter bottom sheet close button
+     * @param color Custom color resource
+     */
+    fun setCustomFiltersBottomSheetCloseButtonTextColor(color: Int?)
+
+    /**
+     * Set custom text color for the chat rules fragment
+     * @param color Custom color resource
+     */
+    fun setCustomChatRulesTextColor(color: Int?)
+
+    /**
+     * Set custom text color for the chat rules button
+     * @param color Custom color resource
+     */
+    fun setCustomChatRulesButtonTextColor(color: Int?)
+
+    /**
+     * Set custom background color for the chat rules button
+     * @param color Custom color resource
+     */
+    fun setCustomChatRulesButtonColor(color: Int?)
+
+    /**
+     * Set custom background drawable for the chat rules fragment
+     * @param drawable Custom drawable resource
+     */
+    fun setCustomChatRulesBackgroundDrawable(drawable: Int?)
+
+    /**
+     * Set the custom text of the error button
+     * @param text Custom text
+     */
+    fun setErrorText(text: String)
+
+    /**
+     * Set the color for the quiz time remaining in normal mode
+     * @param color The color resource for the quiz time remaining in normal mode
+     */
+    fun setExpirationTimeTextNormalColorValue(color: Int)
+
+    /**
+     * Set the color for the quiz time remaining in expiring mode
+     * @param color The color resource for the quiz time remaining in expiring mode
+     */
+    fun setExpirationTimeTextExpiringColorValue(color: Int)
+```
+
+`SayTVChatHeaderView`
+```kotlin
+    /**
+     * Set the color for the quiz time remaining in normal mode
+     * @param color The color resource for the quiz time remaining in normal mode
+     */
+    fun setExpirationTimeTextNormalColorValue(color: Int)
+
+    /**
+     * Set the color for the quiz time remaining in expiring mode
+     * @param color The color resource for the quiz time remaining in expiring mode
+     */
+    fun setExpirationTimeTextExpiringColorValue(color: Int)
+```
+
+`SayTVProfileView`
+```kotlin
+    fun setCustomProfileBadgesActivityBackgroundColor(color: Int?)
+
+    fun setCustomProfileBadgesActivityProgressBarColor(color: Int?)
+
+    fun setCustomProfileBadgesActivityToolBarColor(color: Int?)
+
+    fun setCustomProfileBadgesActivityToolBarTextColor(color: Int?)
+
+    fun setCustomProfileBadgesActivityToolBarText(text: String?)
+
+    fun setCustomProfileBadgesActivityToolBarBackIcon(drawable: Int?)
+
+    fun setCustomSelectAvatarActivityBackgroundColor(color: Int?)
+
+    fun setCustomSelectAvatarActivityProgressBarColor(color: Int?)
+
+    fun setCustomSelectAvatarActivityToolBarColor(color: Int?)
+
+    fun setCustomSelectAvatarActivityToolBarTextColor(color: Int?)
+
+    fun setCustomSelectAvatarActivityToolBarText(text: String?)
+
+    fun setCustomSelectAvatarActivityToolBarBackIcon(drawable: Int?)
 ```
 
 # Troubleshooting
