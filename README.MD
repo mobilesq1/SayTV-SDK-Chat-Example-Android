@@ -731,6 +731,7 @@ binding.chatView.customizeTheme {
     mentionsBackground = someDrawable
     quizTextColor = someInt
     quizTitleTextColor: someInt
+    quizTitleBackground: someDrawable
     quizOptionsTextColor: someInt
     quizXButtonTintColor: someInt
     quizCollapseButtonTintColor: someInt
@@ -738,6 +739,8 @@ binding.chatView.customizeTheme {
     quizBackgroundDrawable: someDrawable
     quizExpirationTimeBackground: someDrawable
     quizOptionsButtonBackground: someDrawable
+    quizOptionProgressBarNormalColor: someInt
+    quizOptionProgressBarFilledColor: someInt
 }
 
 binding.chatHeaderView.customizeTheme {
@@ -752,6 +755,7 @@ binding.chatHeaderView.customizeTheme {
     timeRemainingTextColor = someInt
     quizTextColor = someInt
     quizTitleTextColor: someInt
+    quizTitleBackground: someDrawable
     quizOptionsTextColor: someInt
     quizXButtonTintColor: someInt
     quizCollapseButtonTintColor: someInt
@@ -769,6 +773,8 @@ binding.chatHeaderView.customizeTheme {
     settingsQuizBackground = someDrawable
     settingsHashtagBackground = someDrawable
     tvShowProgressBarDrawable = someDrawable
+    quizOptionProgressBarNormalColor: someInt
+    quizOptionProgressBarFilledColor: someInt
 }
 
 binding.profileView.customizeTheme {
