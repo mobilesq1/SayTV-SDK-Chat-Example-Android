@@ -729,18 +729,22 @@ binding.chatView.customizeTheme {
     chatTextColor = someInt
     messageInputBackground = someDrawable
     mentionsBackground = someDrawable
+    nextChatButtonTextColor = someInt
+    nextChatButtonBackground = someInt
+    nextChatMessageTextColor = someInt
+    nextChatTitleTextColor = someInt
     quizTextColor = someInt
-    quizTitleTextColor: someInt
-    quizTitleBackground: someDrawable
-    quizOptionsTextColor: someInt
-    quizXButtonTintColor: someInt
-    quizCollapseButtonTintColor: someInt
-    quizOptionsButtonTextColor: someInt
-    quizBackgroundDrawable: someDrawable
-    quizExpirationTimeBackground: someDrawable
-    quizOptionsButtonBackground: someDrawable
-    quizOptionProgressBarNormalColor: someInt
-    quizOptionProgressBarFilledColor: someInt
+    quizTitleTextColor = someInt
+    quizTitleBackground = someDrawable
+    quizOptionsTextColor = someInt
+    quizXButtonTintColor = someInt
+    quizCollapseButtonTintColor = someInt
+    quizOptionsButtonTextColor = someInt
+    quizBackgroundDrawable = someDrawable
+    quizExpirationTimeBackground = someDrawable
+    quizOptionsButtonBackground = someDrawable
+    quizOptionProgressBarNormalColor = someInt
+    quizOptionProgressBarFilledColor = someInt
 }
 
 binding.chatHeaderView.customizeTheme {
@@ -754,15 +758,15 @@ binding.chatHeaderView.customizeTheme {
     filtersTextColor = someInt
     timeRemainingTextColor = someInt
     quizTextColor = someInt
-    quizTitleTextColor: someInt
-    quizTitleBackground: someDrawable
-    quizOptionsTextColor: someInt
-    quizXButtonTintColor: someInt
-    quizCollapseButtonTintColor: someInt
-    quizOptionsButtonTextColor: someInt
-    quizBackgroundDrawable: someDrawable
-    quizExpirationTimeBackground: someDrawable
-    quizOptionsButtonBackground: someDrawable
+    quizTitleTextColor = someInt
+    quizTitleBackground = someDrawable
+    quizOptionsTextColor = someInt
+    quizXButtonTintColor = someInt
+    quizCollapseButtonTintColor = someInt
+    quizOptionsButtonTextColor = someInt
+    quizBackgroundDrawable = someDrawable
+    quizExpirationTimeBackground = someDrawable
+    quizOptionsButtonBackground = someDrawable
     programTimeTextColor = someInt
     progressBarForegroundColor = someInt
     progressBarBackgroundColor = someInt
@@ -773,8 +777,8 @@ binding.chatHeaderView.customizeTheme {
     settingsQuizBackground = someDrawable
     settingsHashtagBackground = someDrawable
     tvShowProgressBarDrawable = someDrawable
-    quizOptionProgressBarNormalColor: someInt
-    quizOptionProgressBarFilledColor: someInt
+    quizOptionProgressBarNormalColor = someInt
+    quizOptionProgressBarFilledColor = someInt
 }
 
 binding.profileView.customizeTheme {
