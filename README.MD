@@ -844,12 +844,24 @@ Components have several methods that can be used to customize different other el
      * @param drawable Custom drawable resource
      */
     fun setCustomChatRulesBackgroundDrawable(drawable: Int?)
+    
+    /**
+     * Set custom background drawable for the empty chat button
+     * @param drawable Custom drawable resource
+     */
+    fun setCustomEmptyChatButtonBackgroundDrawable(drawable: Int)
 
     /**
      * Set the custom text of the error button
      * @param text Custom text
      */
     fun setErrorText(text: String)
+    
+    /**
+     * Set the custom text of the error view
+     * @param text Custom text
+     */
+    fun setErrorMessageText(text: String)
 
     /**
      * Set the color for the quiz time remaining in normal mode
