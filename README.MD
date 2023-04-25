@@ -33,6 +33,37 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha70
+- Subscibing to the `ChatActionListener` and `ChatHeaderActionListener` can give us access to the realtime changes of the active users count. NB, this only shows when the number is above 25.
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatView.addActionListener(this)
+        ...
+    }
+
+    override fun eventActiveUsers(episodeId: Int, activeUsers: Int) {
+        // Do something with activeUsers count
+    }
+}
+```
+or
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatHeaderActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatHeaderView.addActionListener(this)
+        ...
+    }
+
+    override fun eventActiveUsers(episodeId: Int, activeUsers: Int) {
+        // Do something with activeUsers count
+    }
+}
+```
+- Decimals in quiz results have been truncated
+- Sentry installed
 ### 1.0.0-testing30
 - Fixes pending issues with the quizzes
 - Can now modify the text on the "Next Chat" button with the help of a method "setErrorText()" on the chat component
@@ -510,7 +541,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha62'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha70'
 ```
 4. You're all set!
 
