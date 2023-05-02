@@ -33,6 +33,36 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 
 # SDK
 ## What's new
+### 1.0.0-alpha71
+- Installed Sentry
+- Fixed issue with the back button on the Avatar screen
+- Moved the "liked" reaction thumb to the right
+- The active users threshold can be set from the init method of the `SayTVChatView`, `SayTVChatHeaderView` and `SayTVChatFullView`. For example, the below code snippet sets the threshold to 10, active user events will not be received with active user values below 10.
+```kotlin
+    init(
+        ..., 
+        activeUserThreshold = 10
+    )
+```
+- Attaching the below code snippet allows for the sending of SDK events to Google Analytics.
+```kotlin
+    class ChatActivity : AppCompatActivity(), ChatActionListener {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            binding.chatView.commentsView.addChatActionListener(this)
+        }
+        ...
+        override fun eventOnUserAnalyticsRequested(analyticsInformation: Map<String, Any?>) {
+            val firebaseAnalytics = Firebase.analytics
+            val bundle = Bundle()
+            for ((key, value) in analyticsInformation) {
+                bundle.putString(key, value.toString())
+            }
+
+            firebaseAnalytics.logEvent("SAYTV_CHAT_SUBSCRIPTION", bundle)
+        }
+    }
+```
 ### 1.0.0-alpha70
 - Subscibing to the `ChatActionListener` and `ChatHeaderActionListener` can give us access to the realtime changes of the active users count. NB, this only shows when the number is above 25.
 ```kotlin
@@ -541,7 +571,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha70'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha71'
 ```
 4. You're all set!
 
