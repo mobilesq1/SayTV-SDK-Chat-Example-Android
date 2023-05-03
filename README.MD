@@ -34,7 +34,7 @@ compilation process to succeed. It's a mock file and it's not tied to any Fireba
 # SDK
 ## What's new
 ### 1.0.0-alpha72
-- Quiz now supports 4 options
+- Quiz now supports up to 4 options
 ### 1.0.0-alpha71
 - Installed Sentry
 - Fixed issue with the back button on the Avatar screen
