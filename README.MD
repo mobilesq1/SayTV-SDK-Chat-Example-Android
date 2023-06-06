@@ -3,10 +3,11 @@ App that is going to use the Saytv Chat library.
 
 Table of contents
 - [What's New](#whats-new) 
-- [Instalation](#chat-sdk)
+- [Installation](#chat-sdk)
 - [Initialization](#initialization)
-- [Push notifications](#push-notifications)
-- [Register, login and logout](#register-login-and-logout)
+- [Register](#register)
+- [Login](#login)
+- [Logout](#logout)
 - [Chat](#chat)
 - [Header](#header)
 - [Get active users](#get-active-users)
@@ -26,7 +27,7 @@ Check older versions on the [CHANGELOG](CHANGELOG.md)
 1. In the `gradle.properties` replace string `<PROVIDED JITPACK AUTH TOKEN>` with the provided
     Jitpack.io authentication token
 
-## How to install
+## Installation
 
 1. In the `gradle.properties` of your app, add the following line:
 ```
@@ -47,8 +48,6 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
 implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha74'
 ```
 4. You're all set!
-
-# Using the SDK
 
 ## Initialization
 
@@ -165,11 +164,46 @@ only after `SayTVSdk.init()` has completed. Doing so an authentication token wil
 by the `SayTVSdk` in order for the `SayTVChatView` to work properly
 Please keep in mind that the avatar `Uri` param has to be an URL. This method **does not** upload an image!
 
+```kotlin
+lifecycle.coroutineScope.launch {
+    when (val register = SayTVSdk.register(
+            apiToken = ..., 
+            digicelId = ...,
+            username = ...,
+            avatar = ...,
+        )
+    ) {
+        is Result.Success -> doSomething
+        else -> doNothing()
+    }
+}
+```
+
 ## Login
 
 Call this only after the `SayTVSdk.init()` method, given an account has already been created. 
 Doing so an authentication token will be generated and cached by the `SayTVSdk`
 in order for the `SayTVChatView` to work properly
+
+```kotlin
+lifecycle.coroutineScope.launch {
+    when (val login = SayTVSdk.login(apiToken = ..., digicelId = ...)) {
+        is Result.Success -> doSomething
+        else -> doNothing()
+    }
+}
+```
+
+## Logout
+
+To logout inside the SDK, call `SayTvSdk.logout()` like below 
+
+``` Kotlin
+when (val logout = SayTVSdk.logout()) {
+    is Result.Success -> doSomething
+    else -> doSomething
+}
+```
 
 ## ChatView
 
