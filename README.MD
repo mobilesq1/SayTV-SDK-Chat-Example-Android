@@ -14,7 +14,7 @@ Table of contents
 - [Full Chat](#full-chat)
 - [Get active users](#get-active-users)
 - [Profile](#profile)
-- [Customization] (#customization)
+- [Customization](#customization)
 - [Options](#options)
 - [Known Issues](#known-issues)
 
