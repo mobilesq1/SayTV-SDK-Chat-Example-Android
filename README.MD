@@ -262,7 +262,7 @@ binding.chatView.customizeTheme {
 }
 ```
 
-For more on customizations, see the customization section
+For more on customizations, see the [customization section](#customization-and-theming)
 
 When initialising a chat component SDK automatically subscribes user to the chat events. While subscription is done automatically by the SDK, you need to handle unsubscribe manually if the `shouldAutoUnsubscribe` attribute of the `SayTVChatView` is set to false. You can unsubscribe from a chat by calling the `unsubscribe()` method off the `SayTVChatView` component:
 
@@ -331,7 +331,7 @@ binding.chatHeaderView.customizeTheme {
 }
 ```
 
-For more on customizations, see the customization section
+For more on customizations, see the [customization section](#customization-and-theming)
 
 ## Dummy Header
 
@@ -359,7 +359,7 @@ binding.dummyChatHeaderView.initWithoutSubscribeDynamic(
     endDate = ...,
 )
 ```
-Customization for this is the same as customization for a header
+Customization for this is the same as customization for a [header](#header)
 
 ## Full Chat
 
