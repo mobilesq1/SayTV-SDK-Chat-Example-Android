@@ -1,21 +1,26 @@
-# Summary
+# Saytv Chat Example Android
+App that is going to use the Saytv Chat library.
 
-## Structure
+Table of contents
+- [What's New](#whats-new) 
+- [Instalation](#chat-sdk)
+- [Initialization](#initialization)
+- [Push notifications](#push-notifications)
+- [Register, login and logout](#register-login-and-logout)
+- [Chat](#chat)
+- [Header](#header)
+- [Get active users](#get-active-users)
+- [Dummy header](#dummy-header)
+- [Full Chat](#full-chat)
+- [Profile](#profile)
+- [Options](#options)
+- [Known Issues](#known-issues)
 
-### `:common`
+## What's New
+### 1.0.0-alpha74
+- Harmonized quiz Results Format and percentages with iOS
 
-This is an Android gradle module that contains classes and resources that can be shared between the 
-two apps below such as the common screens `MainActivity` and `ChatActivity`
-
-### `:sample:no-firebase`
-
-This is a sample app demonstrating simply using the SDK in a common environment where the app
-integrating this SDK is not using Firebase Messaging services
-
-### `:sample:firebase`
-
-This is a sample demonstrating using the SDK when it has to be coupled with an already existing
-Firebase implementation.
+Check older versions on the [CHANGELOG](CHANGELOG.md)
 
 For this the project is using a 
 [mock-google-services.json](https://github.com/firebase/quickstart-android/blob/master/mock-google-services.json)
