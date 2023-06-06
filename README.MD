@@ -173,8 +173,8 @@ lifecycle.coroutineScope.launch {
             avatar = ...,
         )
     ) {
-        is Result.Success -> doSomething
-        else -> doNothing()
+        is Result.Success -> doSomething()
+        else -> doSomething()
     }
 }
 ```
@@ -188,8 +188,8 @@ in order for the `SayTVChatView` to work properly
 ```kotlin
 lifecycle.coroutineScope.launch {
     when (val login = SayTVSdk.login(apiToken = ..., digicelId = ...)) {
-        is Result.Success -> doSomething
-        else -> doNothing()
+        is Result.Success -> doSomething()
+        else -> doSomething()
     }
 }
 ```
@@ -200,8 +200,8 @@ To logout inside the SDK, call `SayTvSdk.logout()` like below
 
 ``` Kotlin
 when (val logout = SayTVSdk.logout()) {
-    is Result.Success -> doSomething
-    else -> doSomething
+    is Result.Success -> doSomething()
+    else -> doSomething()
 }
 ```
 
