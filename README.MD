@@ -112,7 +112,7 @@ class SampleApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        SayTVSdk.init(this) {
+        SayTVSdk.init(context, firebaseApp, preferredDisplayName (optional), baseURL (optional), onCompleted (optional) ) {
             when (it) {
                 is Result.Success -> logcat { "SayTVSdk initialized successfully" }
                 is Result.Error.Firebase -> logcat(Log.ERROR, it.throwable) { "SayTVSdk failed to initialize:" }
