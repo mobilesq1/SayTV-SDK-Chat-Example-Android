@@ -14,6 +14,7 @@ Table of contents
 - [Full Chat](#full-chat)
 - [Get active users](#get-active-users)
 - [Profile](#profile)
+- Customization (#customization)
 - [Options](#options)
 - [Known Issues](#known-issues)
 
@@ -394,15 +395,15 @@ Since the fullView is a merger of the header and chatView, you can customize the
 
 ```kotlin
 binding.fullView.headerView.customizeTheme {
-
+    ...
 }
 
 binding.fullView.commentsView.customizeTheme {
-
+    ...
 }
 ```
 
-## Customization
+## Customization and Theming
 
 Several parameters are available for theming `SayTVChatView` xml layout  as shown below
 ```xml
