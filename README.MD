@@ -207,13 +207,11 @@ when (val logout = SayTVSdk.logout()) {
 
 ## ChatView
 
-An Android View containing the chat itself. For this view to work properly, 3 things must be met first:
+This is an Android View containing the chat itself. For this view to work properly, 2 things must be met first:
 1. `SayTVSdk.init()` has been called and completed successfully 
 2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
-3. `SayTVChatView.init()` has been called with the proper parameters, see `SayTVChatView.init()`
 
-You are now able to integrate and use our `SayTVChatView` in your layouts. See `ChatActivity` for a 
-working example.
+You can add the `SayTVChatView` component to your XML file and give it an ID you can reference later on in code, for example
 
 ```xml
  <io.square1.saytvsdk.app.scenes.SayTVChatView
@@ -221,6 +219,54 @@ working example.
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 ```
+
+In your Kotlin file, initialize the component by calling SayTVChatView.init(...) with its relevant parameters, for example
+
+```kotlin
+binding.chatView.init(
+    chatId = ...,
+    chatName = ...,
+    chatImage = ...,
+    startDate = ...,
+    endDate = ...,
+    isFanzone = true,
+    shouldAutoUnsubscribe = true,
+    shouldDisplayQuizzes = false,
+    displayButtonBar = true,
+    language = "fr"
+)
+```
+
+You can further customize the `SayTVChatView` by directly calling custom methods, for example
+
+```kotlin
+binding.chatView.commentsView.apply {
+    setCustomFiltersBottomSheetBackgroundColor(R.color.black)
+    setCustomFiltersBottomSheetBodyTextColor(io.square1.saytvsdk.R.color.lime)
+    setCustomFiltersBottomSheetTitleTextColor(R.color.red)
+    setCustomFiltersBottomSheetCloseButtonTextColor(R.color.red)
+}
+```
+
+Or you can customize by using the customizeTheme method on the `SayTVChatView` component. For example
+
+```kotlin
+binding.chatView.commentsView.customizeTheme {
+    quizTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    quizOptionsTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    quizOptionsButtonTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    quizBackgroundDrawable = resources.getDrawable(R.drawable.test_drawable)
+}
+```
+
+For more on customizations, see the customization section
+
+4. `SayTVChatView.init()` has been called with the proper parameters, see `SayTVChatView.init()`
+
+You are now able to integrate and use our `SayTVChatView` in your layouts. See `ChatActivity` for a 
+working example.
+
+
 
 ## Customization
 
