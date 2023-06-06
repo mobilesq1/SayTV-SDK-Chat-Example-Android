@@ -10,9 +10,9 @@ Table of contents
 - [Logout](#logout)
 - [Chat](#chat)
 - [Header](#header)
-- [Get active users](#get-active-users)
 - [Dummy header](#dummy-header)
 - [Full Chat](#full-chat)
+- [Get active users](#get-active-users)
 - [Profile](#profile)
 - [Options](#options)
 - [Known Issues](#known-issues)
@@ -332,7 +332,7 @@ For more on customizations, see the customization section
 
 ## Dummy Header
 
-This is an Android View containing the chat header but without the ability to subscribe dynamically to a chat, this view acts as a sort of dummy for a header. For this view to work properly, 2 things must be met first:
+This is an Android View containing the chat header but without the ability to subscribe dynamically to a chat or make any service calls, this view acts as a sort of dummy for a header. For this view to work properly, 2 things must be met first:
 1. `SayTVSdk.init()` has been called and completed successfully 
 2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
 
@@ -357,6 +357,50 @@ binding.dummyChatHeaderView.initWithoutSubscribeDynamic(
 )
 ```
 Customization for this is the same as customization for a header
+
+## FullView
+
+This is an Android View containing the chatView and chatHeaderView in one component. For this view to work properly, 2 things must be met first:
+1. `SayTVSdk.init()` has been called and completed successfully 
+2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
+
+You can add the `SayTVChatFullView` component to your XML file and give it an ID you can reference later on in code, for example
+
+```xml
+ <io.square1.saytvsdk.app.scenes.SayTVChatFullView
+        android:id="@+id/full_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+```
+
+In your Kotlin file, initialize the component by calling SayTVChatFullView.init(...) with its relevant parameters, for example
+
+```kotlin
+binding.fullView.init(
+    chatId = ...,
+    chatName = ...,
+    chatImage = ...,
+    startDate = ...,
+    endDate = ...,
+    isFanzone = true,
+    shouldAutoUnsubscribe = true,
+    shouldDisplayQuizzes = false,
+    displayButtonBar = true,
+    language = "fr"
+)
+```
+
+Since the fullView is a merger of the header and chatView, you can customize the fullView by customizing the headerView and chatView independently, for example
+
+```kotlin
+binding.fullView.headerView.customizeTheme {
+
+}
+
+binding.fullView.commentsView.customizeTheme {
+
+}
+```
 
 ## Customization
 
