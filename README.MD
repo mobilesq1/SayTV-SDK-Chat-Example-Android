@@ -358,7 +358,7 @@ binding.dummyChatHeaderView.initWithoutSubscribeDynamic(
 ```
 Customization for this is the same as customization for a header
 
-## FullView
+## Full Chat
 
 This is an Android View containing the chatView and chatHeaderView in one component. For this view to work properly, 2 things must be met first:
 1. `SayTVSdk.init()` has been called and completed successfully 
