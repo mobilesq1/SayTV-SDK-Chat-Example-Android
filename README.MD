@@ -3,6 +3,7 @@ App that is going to use the Saytv Chat library.
 
 Table of contents
 - [What's New](#whats-new) 
+- [Prerequisites](#prerequisites) 
 - [Installation](#chat-sdk)
 - [Initialization](#initialization)
 - [Register](#register)
@@ -25,7 +26,8 @@ Table of contents
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
 ## Prerequisites
-1. In the `gradle.properties` replace string `<PROVIDED JITPACK AUTH TOKEN>` with the provided
+1. Create a Jitpack account and generate an authentication token.
+2. In the `gradle.properties` replace string `<PROVIDED JITPACK AUTH TOKEN>` with the provided
     Jitpack.io authentication token
 
 ## Installation
@@ -112,7 +114,7 @@ class SampleApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        SayTVSdk.init(context, firebaseApp, preferredDisplayName (optional), baseURL (optional), onCompleted (optional) ) {
+        SayTVSdk.init(this) {
             when (it) {
                 is Result.Success -> logcat { "SayTVSdk initialized successfully" }
                 is Result.Error.Firebase -> logcat(Log.ERROR, it.throwable) { "SayTVSdk failed to initialize:" }
@@ -402,6 +404,67 @@ binding.fullView.commentsView.customizeTheme {
     ...
 }
 ```
+
+## Get active users
+Get the active users in as many chat rooms as you need. Simply pass the externalIDs of the chat in a list to the `getActiveUsersFor()` method as seen below. The result on success is a list containing objects with the information
+
+```kotlin
+launch {
+    when (val activeUsers = SayTVSDK.getActiveUsersFor(listOf("", "", ""))) {
+        is Result.Success -> doSomething()
+        else -> doSomething()
+    }
+}
+```
+
+## Profile
+This is an Android View containing the profileView. For this view to work properly, 2 things must be met first:
+1. `SayTVSdk.init()` has been called and completed successfully 
+2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
+
+You can add the `SayTVProfileView` component to your XML file and give it an ID you can reference later on in code, for example
+
+```kotlin
+<io.square1.saytvsdk.app.scenes.profile.SayTVProfileView
+    android:id="@+id/profile_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    ...>
+```
+In your Kotlin file, initialize the component by calling SayTVProfileView.setUserId(...) with its relevant parameters, for example
+
+```kotlin
+binding.profileView.setUserId(
+    userID = ...,
+    language = ...
+)
+```
+
+NB: Both `userID` and `language` are optional, where a userID is passed, the profile information for the relevant user is collected, where nothing is passed, the profile information for the currently logged in user is collected.
+
+You can further customize the `SayTVProfileView` by directly calling custom methods, for example
+
+```kotlin
+binding.profileView.apply {
+    setCustomProfileBadgesActivityBackgroundColor(R.color.black)
+    setCustomProfileBadgesActivityProgressBarColor(io.square1.saytvsdk.R.color.lime)
+    setCustomProfileBadgesActivityToolBarColor(R.color.red)
+    setCustomProfileBadgesActivityToolBarTextColor(R.color.red)
+}
+```
+
+Or you can customize by using the customizeTheme method on the `SayTVProfileView` component. For example h
+
+```kotlin
+binding.profileView.customizeTheme {
+    profileBackgroundColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    nameTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    memberSinceTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+}
+```
+
+For more on customizations, see the [customization section](#customization-and-theming)
+
 
 ## Customization and Theming
 
