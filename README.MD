@@ -240,7 +240,7 @@ binding.chatView.init(
 You can further customize the `SayTVChatView` by directly calling custom methods, for example
 
 ```kotlin
-binding.chatView.commentsView.apply {
+binding.chatView.apply {
     setCustomFiltersBottomSheetBackgroundColor(R.color.black)
     setCustomFiltersBottomSheetBodyTextColor(io.square1.saytvsdk.R.color.lime)
     setCustomFiltersBottomSheetTitleTextColor(R.color.red)
@@ -251,7 +251,7 @@ binding.chatView.commentsView.apply {
 Or you can customize by using the customizeTheme method on the `SayTVChatView` component. For example
 
 ```kotlin
-binding.chatView.commentsView.customizeTheme {
+binding.chatView.customizeTheme {
     quizTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
     quizOptionsTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
     quizOptionsButtonTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
@@ -261,12 +261,102 @@ binding.chatView.commentsView.customizeTheme {
 
 For more on customizations, see the customization section
 
-4. `SayTVChatView.init()` has been called with the proper parameters, see `SayTVChatView.init()`
+When initialising a chat component SDK automatically subscribes user to the chat events. While subscription is done automatically by the SDK, you need to handle unsubscribe manually if the `shouldAutoUnsubscribe` attribute of the `SayTVChatView` is set to false. You can unsubscribe from a chat by calling the `unsubscribe()` method off the `SayTVChatView` component:
 
-You are now able to integrate and use our `SayTVChatView` in your layouts. See `ChatActivity` for a 
-working example.
+```kotlin
+launch {
+    when (val unsubscribeOp = binding.chatView.unsubscribe()) {
+        is Result.Success -> doSomething()
+        else -> doSomething()
+    }
+}
+```
 
+Yet there are some exceptions where SDK also unsubscribe user automatically from the chat: - when user has been banned from the chat by admin.
 
+There could be only one active chat at a time in the SDK. If the new chat is created (different chatId) without unsubscribing from old chat then unsubscribe from old chat will be performed automatically before subscribing to a new chat. This provides possibility to control subscribe status when recreating chat component in different scenarios so the SDK can store all chat data between subscribe and unsubscribe so if chat is multiple time recreated (for example on device orientation change) all the data of the chat are up to date and are removed only when unsubscribe is called. This improves data synchronisation when recreating the chat without unsubscribing.
+
+## Header
+
+This is an Android View containing the chat header. For this view to work properly, 2 things must be met first:
+1. `SayTVSdk.init()` has been called and completed successfully 
+2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
+
+You can add the `SayTVChatHeaderView` component to your XML file and give it an ID you can reference later on in code, for example
+
+```xml
+ <io.square1.saytvsdk.app.scenes.SayTVChatHeaderView
+        android:id="@+id/chat_header_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+```
+
+In your Kotlin file, initialize the component by calling SayTVChatHeaderView.init(...) with its relevant parameters, for example
+
+```kotlin
+binding.chatHeaderView.init(
+    chatId = ...,
+    chatName = ...,
+    chatImage = ...,
+    startDate = ...,
+    endDate = ...,
+    isFanzone = true,
+    shouldAutoUnsubscribe = true,
+    shouldDisplayQuizzes = false,
+    displayButtonBar = true,
+    language = "fr"
+)
+```
+
+You can further customize the `SayTVChatHeaderView` by directly calling custom methods, for example
+
+```kotlin
+binding.chatHeaderView.apply {
+    setExpirationTimeTextNormalColorValue(R.color.red)
+    setExpirationTimeTextExpiringColorValue(R.color.teal_700)
+}
+```
+
+Or you can customize by using the customizeTheme method on the `SayTVChatHeaderView` component. For example
+
+```kotlin
+binding.chatHeaderView.customizeTheme {
+    quizTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    quizOptionsTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    quizOptionsButtonTextColor = ContextCompat.getColor(this@ChatActivity, R.color.red)
+    quizBackgroundDrawable = resources.getDrawable(R.drawable.test_drawable)
+}
+```
+
+For more on customizations, see the customization section
+
+## Dummy Header
+
+This is an Android View containing the chat header but without the ability to subscribe dynamically to a chat, this view acts as a sort of dummy for a header. For this view to work properly, 2 things must be met first:
+1. `SayTVSdk.init()` has been called and completed successfully 
+2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
+
+You can add the `SayTVChatHeaderView` component to your XML file and give it an ID you can reference later on in code, for example
+
+```xml
+ <io.square1.saytvsdk.app.scenes.SayTVChatHeaderView
+        android:id="@+id/dummy_chat_header_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+```
+
+In your Kotlin file, initialize the component by calling SayTVChatHeaderView.initWithoutSubscribeDynamic(...) with its relevant parameters, for example
+
+```kotlin
+binding.dummyChatHeaderView.initWithoutSubscribeDynamic(
+    chatId = ...,
+    chatName = ...,
+    chatImage = ...,
+    startDate = ...,
+    endDate = ...,
+)
+```
+Customization for this is the same as customization for a header
 
 ## Customization
 
