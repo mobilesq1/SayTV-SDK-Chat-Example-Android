@@ -9,7 +9,7 @@ Table of contents
 - [Register](#register)
 - [Login](#login)
 - [Logout](#logout)
-- [Chat](#chat)
+- [ChatView](#chat-view)
 - [Header](#header)
 - [Dummy header](#dummy-header)
 - [Full Chat](#full-chat)
@@ -18,6 +18,7 @@ Table of contents
 - [Customization and Theming](#customization-and-theming)
 - [Options](#options)
 - [Known Issues](#known-issues)
+- [Troubleshooting](#troubleshooting)
 
 ## What's New
 ### 1.0.0-alpha74
@@ -729,8 +730,11 @@ Components have several methods that can be used to customize different other el
 
     fun setCustomSelectAvatarActivityToolBarBackIcon(drawable: Int?)
 ```
+## Options
 
-# Troubleshooting
+## Known Issues
+
+## Troubleshooting
 
 1. Gradle Sync -> Jitpack.io 403 response:
 
