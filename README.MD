@@ -257,8 +257,9 @@ binding.chatView.init(
 )
 ```
 
-`chatId`: ID of the chat you're subscribing dynamically to
-`chatName`: Name of the chat you're subscribing dynamically to
+`chatId` : ID of the chat you're subscribing dynamically to
+
+`chatName` : Name of the chat you're subscribing dynamically to
 
 You can further customize the `SayTVChatView` by directly calling custom methods, for example
 
