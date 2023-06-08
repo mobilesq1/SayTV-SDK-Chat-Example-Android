@@ -8,6 +8,7 @@ Table of contents
 - [Initialization](#initialization)
 - [Register](#register)
 - [Login](#login)
+- [Get Logged In User](#get-logged-in-user)
 - [Logout](#logout)
 - [ChatView](#chat-view)
 - [Header](#header)
@@ -17,7 +18,7 @@ Table of contents
 - [Profile](#profile)
 - [Customization and Theming](#customization-and-theming)
 - [Options](#options)
-- [Known Issues](#known-issues)
+- [User Analytics](#user-analytics)
 - [Troubleshooting](#troubleshooting)
 
 ## What's New
@@ -195,6 +196,21 @@ lifecycle.coroutineScope.launch {
         is Result.Success -> doSomething()
         else -> doSomething()
     }
+}
+```
+
+## Get Logged In User
+
+For this view to work properly, 2 things must be met first:
+1. `SayTVSdk.init()` has been called and completed successfully 
+2. `SayTVSdk.login` or `SayTVSdk.register` has been called and completed successfully
+
+To get the logged in user, call the `getLoggedInUser()` method from the SayTVSDK object anywhere in your code
+
+```kotlin
+when (val loggedInUser = SayTVSdk.getLoggedInUser()) {
+    is Result.Success -> doSomething()
+    else -> doSomething()
 }
 ```
 
@@ -731,8 +747,127 @@ Components have several methods that can be used to customize different other el
     fun setCustomSelectAvatarActivityToolBarBackIcon(drawable: Int?)
 ```
 ## Options
+- Subscibing to the `ChatActionListener`, `ChatHeaderActionListener` and `ProfileActionListener` can give us access to the realtime changes of a number of properties within the chat, header and profile views, for example active users count, when a comment has been liked, when a first message has been sent, etc. Find below a list of the actions you can listen to through the `ChatActionListener`, `ChatHeaderActionListener` and `ProfileActionListener` 
 
-## Known Issues
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatView.addChatActionListener(this)
+        ...
+    }
+
+    override fun eventSendChat(userId: Int, commentText: String) {
+        // Do something when the logged in user sends a chat
+    }
+    
+    override fun eventAddFavourite(userId: Int, commentId: Long, commentText: String) {
+        // Do something when a comment is liked/favourited
+    }
+    
+    override fun eventEnterChatroom(userId: String, episodeId: Int) {
+        // Do something when a user subscribes successfully to a chat
+    }
+    
+    override fun eventFirstComment(userId: Int, commentText: String) {
+        // Do something when a user sends the first message
+    }
+    
+    override fun eventTenthComment(userId: Int, commentText: String) {
+        // Do something when a user sends the tenth message
+    }
+
+    override fun eventActiveUsers(activeUsers: Int) {
+        // Do something with activeUsers count
+    }
+    
+    override fun eventOnNextChatClicked() {
+        // Do something when the next chat button is clicked
+    }
+    
+    override fun eventOnUserAnalyticsRequested(analyticsInformation: Map<String, Any?>) {
+        // Do something when user analytics are available
+    }
+}
+```
+
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatHeaderActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatHeaderView.addChatHeaderActionListener(this)
+        ...
+    }
+
+    override fun eventCreateQuiz(userId: Int, question: String, answer1: String, answer2: String) {
+        // Do something when quizzes are created
+    }
+    
+    
+    override fun eventEnterQuiz(userId: Int, question: String, answer1: String, answer2: String) {
+        // Do something when quizzes are voted on
+    }
+    
+    
+    override fun eventActiveUsers(episodeId: Int, activeUsers: Int) {
+        // Do something with activeUsers count
+    }
+}
+```
+
+```kotlin
+class ChatActivity : AppCompatActivity(), ProfileActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatHeaderView.addProfileActionListener(this)
+        ...
+    }
+
+    override fun eventViewBadges(userId: Int) {
+        // Do something when badges are viewed
+    }
+}
+```
+
+- When a link is clicked in the chat view, the link and a subset of relevant metadata is available through the `DeepLinkActionListener` which you can listen on by implementing the `DeepLinkActionListener`
+
+```kotlin
+class ChatActivity : AppCompatActivity(), DeepLinkActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatHeaderView.addDeepLinkActionListener(this)
+        ...
+    }
+
+    override fun eventWebLink(linkAndMetaDataPayload: Map<String, Any?>) {
+        // Do something when link is clicked
+    }
+}
+```
+
+## User Analytics
+
+Logging user analytics is easy, simply write this piece of code in the `eventOnUserAnalyticsRequested()` method after implementing `ChatActionListener` as described in [options](#options) above
+
+```kotlin
+class ChatActivity : AppCompatActivity(), ChatActionListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        binding.chatView.addChatActionListener(this)
+        ...
+    }
+    
+    override fun eventOnUserAnalyticsRequested(analyticsInformation: Map<String, Any?>) {
+        val firebaseAnalytics = Firebase.analytics
+        val bundle = Bundle()
+        for ((key, value) in analyticsInformation) {
+            bundle.putString(key, value.toString())
+        }
+
+        firebaseAnalytics.logEvent("SAYTV_CHAT_SUBSCRIPTION", bundle)
+    }
+}
+```
 
 ## Troubleshooting
 
