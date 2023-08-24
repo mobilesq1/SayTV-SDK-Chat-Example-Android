@@ -2,6 +2,16 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.0
+- Overhauled the notification system in favour of websockets over firebase messaging
+### 12.2.2
+- Minor bug fixes involving links
+- Extended individual ad showtime to 20s
+### 12.2.0
+- Changed ad campaign appearance
+- Enabled ad campaign displays to be persistent until their endtime is reached
+### 12.0.0
+- Introduced ad campaigns to SDK
 ### 1.0.0-testing55
 - Features fixes to quick reaction bugs reported earlier in the week
 - Features method to close the currently logged in account, simply call the `closeAccount()`. method on the `SayTVSDK` object
