@@ -22,18 +22,8 @@ Table of contents
 - [Troubleshooting](#troubleshooting)
 
 ## What's New
-### 1.0.0-testing55
-- Features fixes to quick reaction bugs reported earlier in the week
-- Features method to close the currently logged in account, simply call the `closeAccount()`. method on the `SayTVSDK` object
-```kotlin
-lifecycle.coroutineScope.launch {
-    when (val closeAccount = SayTVSdk.closeAccount()) {
-        is Result.Success -> doSomething()
-        else -> doSomething()
-    }
-}
-```
-- Features ads in both the header and background of chats 
+### 13.0.0
+- Overhauled the notification system in favour of websockets over firebase messaging 
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
