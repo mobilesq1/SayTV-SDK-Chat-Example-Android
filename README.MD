@@ -707,6 +707,12 @@ Components have several methods that can be used to customize different other el
      * @param color The color resource for the quiz time remaining in expiring mode
      */
     fun setExpirationTimeTextExpiringColorValue(color: Int)
+
+    /**
+     * Set the color for the quiz result background
+     * @param color The color resource for the quiz result background
+     */
+    fun setQuizResultItemBackgroundColorValue(color: Int)
 ```
 
 `SayTVChatHeaderView`
