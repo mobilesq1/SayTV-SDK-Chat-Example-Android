@@ -173,7 +173,7 @@ Please keep in mind that the avatar `Uri` param has to be an URL. This method **
 lifecycle.coroutineScope.launch {
     when (val register = SayTVSdk.register(
             apiToken = ..., 
-            digicelId = ...,
+            externalId = ...,
             username = ...,
             avatar = ...,
         )
@@ -192,7 +192,7 @@ in order for the `SayTVChatView` to work properly
 
 ```kotlin
 lifecycle.coroutineScope.launch {
-    when (val login = SayTVSdk.login(apiToken = ..., digicelId = ...)) {
+    when (val login = SayTVSdk.login(apiToken = ..., externalId = ...)) {
         is Result.Success -> doSomething()
         else -> doSomething()
     }
