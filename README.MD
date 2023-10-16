@@ -22,8 +22,9 @@ Table of contents
 - [Troubleshooting](#troubleshooting)
 
 ## What's New
-### 13.0.0
-- Overhauled the notification system in favour of websockets over firebase messaging 
+### 13.0.4
+- Features a new demo environment.
+- The SayTVSdk.register() method now takes an extra parameter digicelId.
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
