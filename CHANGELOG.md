@@ -2,6 +2,8 @@
 > **Note**\
 > This is in reverse chronological order, so newer entries are added to the top.
 
+### 13.0.5
+- Features fixes to the authentication issues in v13.0.4
 ### 13.0.4
 - Features a new demo environment.
 - The `SayTVSdk.register()` method now takes an extra parameter `digicelId`.
