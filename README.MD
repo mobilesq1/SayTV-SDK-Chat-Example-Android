@@ -22,9 +22,8 @@ Table of contents
 - [Troubleshooting](#troubleshooting)
 
 ## What's New
-### 13.0.4
-- Features a new demo environment.
-- The SayTVSdk.register() method now takes an extra parameter digicelId.
+### 13.0.5
+- Features fixes to the authentication issues in v13.0.4
 
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
