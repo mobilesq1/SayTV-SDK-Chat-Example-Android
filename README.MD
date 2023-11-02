@@ -120,8 +120,7 @@ class SampleApp : Application() {
             context = this, 
             firebaseApp = FirebaseApp.initializeApp(this), 
             preferredDisplayName = ...,
-            baseURL = ...,
-            onCompleted = ...) {
+            baseURL = ...) {
             when (it) {
                 is Result.Success -> logcat { "SayTVSdk initialized successfully" }
                 is Result.Error.Firebase -> logcat(Log.ERROR, it.throwable) { "SayTVSdk failed to initialize:" }
