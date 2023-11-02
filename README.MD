@@ -50,7 +50,7 @@ Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
  ```
 3. In your library or app `build.gradle` file add the following dependency:
 ```
-implementation 'org.bitbucket.square1.saytv_sdk_android:release:1.0.0-alpha74'
+implementation 'org.bitbucket.square1.saytv_sdk_android:release:14.0.0'
 ```
 4. You're all set!
 
@@ -109,14 +109,19 @@ need to use the helper ones from section
 then to integrate with our SDK you'll have to:
 1. If you don't have an `Application` class already, create one, declare it in your 
 `AndroidManifest.xml`, and in your `onCreate()` method call `SayTVSdk.init()`. In the
-`SayTVSdk.init()` `onCompleted()` parameter function, you'll be notified when the 
+`SayTVSdk.init()`, with the `onCompleted()` parameter function, you'll be notified when the 
 initialization has completed. See `:sample:firebase` for a working example.
 ```kotlin
 class SampleApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        SayTVSdk.init(this) {
+        SayTVSdk.init(
+            context = this, 
+            firebaseApp = FirebaseApp.initializeApp(this), 
+            preferredDisplayName = ...,
+            baseURL = ...,
+            onCompleted = ...) {
             when (it) {
                 is Result.Success -> logcat { "SayTVSdk initialized successfully" }
                 is Result.Error.Firebase -> logcat(Log.ERROR, it.throwable) { "SayTVSdk failed to initialize:" }
@@ -143,6 +148,24 @@ class SampleFirebaseMessagingService : FirebaseMessagingService() {
         SayTVSdk.firebaseDelegate.onMessageReceived(message)
     }
 
+}
+```
+3. In the not so rare case where `onNewToken(token: String)` is not triggered, we recommend adding the following piece of code to your `SayTVSdk.init()` `Result.Success` block. This forces Firebase to provide a mandatory token to receive notifications with
+```kotlin
+SayTVSdk.init(...) {
+    is Result.Success -> {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(MainActivity.TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+            SayTVSdk.firebaseDelegate.onNewToken(token)
+        })
+    }
+    ...
 }
 ```
 Don't forget to declare them in your `AndroidManifest.xml` file:
