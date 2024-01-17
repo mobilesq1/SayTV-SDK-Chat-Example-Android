@@ -25,6 +25,9 @@ Table of contents
 ### 13.0.5
 - Features fixes to the authentication issues in v13.0.4
 
+### 12.3.0
+- Now admin messages display the name of the admin instead of hardcoded "Admin" string. 
+
 Check older versions on the [CHANGELOG](CHANGELOG.md)
 
 ## Prerequisites

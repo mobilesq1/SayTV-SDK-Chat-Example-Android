@@ -9,6 +9,8 @@
 - The `SayTVSdk.register()` method now takes an extra parameter `digicelId`.
 ### 13.0.0
 - Overhauled the notification system in favour of websockets over firebase messaging
+### 12.3.0
+- Now admin messages display the name of the admin instead of hardcoded "Admin" string. 
 ### 12.2.2
 - Minor bug fixes involving links
 - Extended individual ad showtime to 20s
